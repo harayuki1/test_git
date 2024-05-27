@@ -9,7 +9,4 @@ public class HtmltopdfApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HtmltopdfApplication.class, args);
 	}
-
-	
-	
 }
