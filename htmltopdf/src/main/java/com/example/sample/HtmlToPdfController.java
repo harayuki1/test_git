@@ -40,6 +40,8 @@ public class HtmlToPdfController {
 		ByteArrayInputStream bis = new ByteArrayInputStream(baos.toByteArray());
 		org.apache.commons.io.IOUtils.copy(bis, response.getOutputStream());
 		response.flushBuffer();
+		
+		System.out.println("gittest");
 	}
 }
 
