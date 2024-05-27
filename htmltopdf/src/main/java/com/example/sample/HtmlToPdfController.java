@@ -45,6 +45,11 @@ public class HtmlToPdfController {
 		//aaa
 	}
 	
+	@GetMapping("/home")
+	public String home() {
+		return "home";
+	}
+	
 }
 
 
