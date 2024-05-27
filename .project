@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>kari</name>
+=======
+	<name>git</name>
+>>>>>>> branch 'master' of https://github.com/harayuki1/test_git.git
 	<comment></comment>
 	<projects>
 	</projects>
