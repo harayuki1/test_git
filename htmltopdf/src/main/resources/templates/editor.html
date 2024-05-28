@@ -4,12 +4,28 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>HTMLエディタ</title>
-	<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+	<title>HTMLフォーム</title>
 	<style>
-		#editor {
-			height: 300px;
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			border: 1px solid black;
+			/* テーブルの枠線 */
+		}
+
+		table td {
+			padding: 10px;
+			/* セルの内側の余白 */
+			vertical-align: top;
+			/* 垂直方向の上揃え */
+			border: 1px solid black;
+			/* セルの枠線 */
+		}
+
+		.textarea {
+			width: 100%;
+			font-size: 16px;
+			font-family: IPAexゴシック, sans-serif;
 		}
 
 		form {
@@ -19,23 +35,216 @@
 </head>
 
 <body>
-	<h1>HTMLエディタ</h1>
-	<div id="editor"></div>
+	<h1>HTMLフォーム</h1>
 	<form action="/generatePdf" method="post">
-		<input type="hidden" name="content" id="content">
-		<button type="submit" onclick="submitContent()">PDFを生成</button>
+		<table>
+			<tr>
+				<td>問題１</td>
+				<td><input class="textarea" type="text" name="content1" placeholder="ここに入力してください..."></td>
+			</tr>
+			<tr>
+				<td>問題２</td>
+				<td><input class="textarea" type="text" name="content2" placeholder="ここに入力してください..."></td>
+			</tr>
+			<tr>
+				<td>問題３</td>
+				<td><input class="textarea" type="text" name="content3" placeholder="ここに入力してください..."></td>
+			</tr>
+		</table>
+		<button type="submit">PDFを生成</button>
 	</form>
-
-	<script>
-		var quill = new Quill('#editor', {
-			theme: 'snow'
-		});
-
-		function submitContent() {
-			var content = document.querySelector('input[name=content]');
-			content.value = quill.root.innerHTML;
-		}
-	</script>
 </body>
 
 </html>
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="ja">-->
+
+<!--<head>-->
+<!--	<meta charset="UTF-8">-->
+<!--	<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--	<title>テストの解答欄</title>-->
+<!--	<style>-->
+<!--		body {-->
+<!--			font-family: IPAexゴシック, sans-serif;-->
+<!--			margin: 20px;-->
+<!--		}-->
+
+<!--		.question {-->
+<!--			margin-bottom: 20px;-->
+<!--		}-->
+
+<!--		.question label {-->
+<!--			font-weight: bold;-->
+<!--		}-->
+
+<!--		.submit-btn {-->
+<!--			margin-top: 20px;-->
+<!--		}-->
+<!--	</style>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--	<form action="/generatePdf" method="post">-->
+<!--		<div class="question">-->
+<!--			<label for="question1">大問1:</label>-->
+
+<!--			<div class="sub-question">-->
+<!--				<label for="question1_1">問題1:</label>-->
+<!--				<input type="text" id="question1_1" name="content[1][1]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question1_2">問題2:</label>-->
+<!--				<input type="text" id="question1_2" name="content[1][2]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question1_3">問題3:</label>-->
+<!--				<input type="text" id="question1_3" name="content[1][3]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question1_4">問題4:</label>-->
+<!--				<input type="text" id="question1_4" name="content[1][4]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question1_5">問題5:</label>-->
+<!--				<input type="text" id="question1_5" name="content[1][5]">-->
+<!--			</div>-->
+
+<!--		</div>-->
+
+<!--		<div class="question">-->
+<!--			<label for="question2">大問2:</label>-->
+
+<!--			<div class="sub-question">-->
+<!--				<label for="question2_1">問題1:</label>-->
+<!--				<input type="text" id="question2_1" name="content[2][1]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question2_2">問題2:</label>-->
+<!--				<input type="text" id="question2_2" name="content[2][2]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question2_3">問題3:</label>-->
+<!--				<input type="text" id="question2_3" name="content[2][3]">-->
+<!--			</div>-->
+
+<!--		</div>-->
+
+<!--		<div class="question">-->
+<!--			<label for="question3">大問3:</label>-->
+
+<!--			<div class="sub-question">-->
+<!--				<label for="question3_1">問題1:</label>-->
+<!--				<input type="text" id="question3_1" name="content[3][1]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question3_2">問題2:</label>-->
+<!--				<input type="text" id="question3_2" name="content[3][2]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question3_3">問題3:</label>-->
+<!--				<input type="text" id="question3_3" name="content[3][3]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question3_4">問題4:</label>-->
+<!--				<input type="text" id="question3_4" name="content[3][4]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question3_5">問題5:</label>-->
+<!--				<input type="text" id="question3_5" name="content[3][5]">-->
+<!--			</div>-->
+<!--		</div>-->
+
+
+<!--		<div class="question">-->
+<!--			<label for="question4">大問4:</label>-->
+
+<!--			<div class="sub-question">-->
+<!--				<label for="question4_1">問題1:</label>-->
+<!--				<input type="text" id="question4_1" name="content[4][1]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question4_2">問題2:</label>-->
+<!--				<input type="text" id="question4_2" name="content[4][2]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question4_3">問題3:</label>-->
+<!--				<input type="text" id="question4_3" name="content[4][3]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question4_4">問題4:</label>-->
+<!--				<input type="text" id="question4_4" name="content[4][4]">-->
+<!--			</div>-->
+<!--		</div>-->
+
+
+<!--		<div class="question">-->
+<!--			<label for="question5">大問5:</label>-->
+
+<!--			<div class="sub-question">-->
+<!--				<label for="question5_1">問題1:</label>-->
+<!--				<input type="text" id="question5_1" name="content[5][1]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question5_2">問題2:</label>-->
+<!--				<input type="text" id="question5_2" name="content[5][2]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question5_3">問題3:</label>-->
+<!--				<input type="text" id="question5_3" name="content[5][3]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question5_4">問題4:</label>-->
+<!--				<input type="text" id="question5_4" name="content[5][4]">-->
+<!--			</div>-->
+<!--		</div>-->
+
+
+<!--		<div class="question">-->
+<!--			<label for="question6">大問6:</label>-->
+
+<!--			<div class="sub-question">-->
+<!--				<label for="question6_1">問題1:</label>-->
+<!--				<input type="text" id="question6_1" name="content[6][1]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question6_2">問題2:</label>-->
+<!--				<input type="text" id="question6_2" name="content[6][2]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question6_3">問題3:</label>-->
+<!--				<input type="text" id="question6_3" name="content[6][3]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question6_4">問題4:</label>-->
+<!--				<input type="text" id="question6_4" name="content[6][4]">-->
+<!--			</div>-->
+<!--		</div>-->
+
+
+<!--		<div class="question">-->
+<!--			<label for="question7">大問7:</label>-->
+
+<!--			<div class="sub-question">-->
+<!--				<label for="question7_1">問題1:</label>-->
+<!--				<input type="text" id="question7_1" name="content[7][1]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question7_2">問題2:</label>-->
+<!--				<input type="text" id="question7_2" name="content[7][2]">-->
+<!--			</div>-->
+<!--			<div class="sub-question">-->
+<!--				<label for="question7_3">問題3:</label>-->
+<!--				<input type="text" id="question7_3" name="content[7][3]">-->
+<!--			</div>-->
+
+<!--			<div class="submit-btn">-->
+<!--				<button type="submit">問題を作成</button>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</form>-->
+<!--</body>-->
